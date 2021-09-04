@@ -3,6 +3,10 @@ import datetime as dt
 
 # Create your models here.
 
+class Category(models.Model):
+    category=models.CharField(max_length=30)
+    user = models.ForeignKey('User',on_delete=models.CASCADE,)
+
 class User(models.Model):
     firstname=models.CharField(max_length=30)
     lastname=models.CharField(max_length=30)
