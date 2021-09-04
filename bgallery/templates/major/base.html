@@ -13,11 +13,19 @@
 </head>
 
 <body>
-    {%include "navbar.html"%} {% block content %}
-    <h1 class="text-center">Amazing picture shooting</h1>{%endblock%} {% block scripts %}
+    {%include "navbar.html"%}{%for image in imagess%}
+    <div class="container">
+        <div class="row" style="display:flex">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+                <p>{{image.image_name}}</p>
+                <i>Posted {{image.pub_date|timesince}}</i>
+            </div>
+        </div>
+    </div>
+    {%endfor%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %} {% endblock %}
-
 
 </body>
 
