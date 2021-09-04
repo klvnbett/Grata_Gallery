@@ -1,16 +1,17 @@
+{%load bootstrap3%}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {%if title%} {{title}} {{else}}
     <title>WELCOME TO MY GALLERY</title>
-
+    {%endif%} {%block scripts%} {%bootstrap_css%} {%endblock%}
 </head>
 
 <body>
-
+    {%include "navbar.html"%}
     <h1 class="text-center">Amazing picture shooting
 
     </h1>
