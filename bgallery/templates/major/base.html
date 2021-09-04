@@ -5,20 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% if title %}
-    <title>GALLERY - {{title}}</title> {{else}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {%if title%} {{title}}{{else}}
     <title>WELCOME TO MY GALLERY</title>
     {%endif%} {% block styles %} {%bootstrap_css%}
     <link rel="stylesheet" href="{% static 'css/index.css' %}"> {%endblock%}
 </head>
 
 <body>
-    {%include "navbar.html"%}{%for image in imagess%}
+    {%include "navbar.html"%}{%for image in images%}
     <div class="container">
         <div class="row" style="display:flex">
             <div class="col-sm-6 col-md-6 col-lg-6">
-                <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
-                <p>{{image.image_name}}</p>
+                <img src="{{image.photo.url}}" class="img-responsive" alt="Photo">
+                <p>{{image.photo_name}}</p>
                 <i>Posted {{image.pub_date|timesince}}</i>
             </div>
         </div>

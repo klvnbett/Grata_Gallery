@@ -12,16 +12,16 @@ class User(models.Model):
     def __str__(self):
         return self.firstname
         
-class Photos(models.Model):
-    image=models.ImageField(upload_to='photos/',default="Photos")
-    image_name=models.CharField(max_length=40)
-    image_description=models.TextField(blank=False,default="Photos description")
+class Photo(models.Model):
+    photo=models.ImageField(upload_to='photos/',default="Photo")
+    photo_name=models.CharField(max_length=40)
+    photo_description=models.TextField(blank=False,default="Photo description")
     user = models.ForeignKey('User',on_delete=models.CASCADE,)
     pub_date=models.DateTimeField(auto_now_add=True,null=True)
     
     def __str__(self):
-        return self.image_name
+        return self.photo_name
     
-    def save_image(self):
+    def save_photo(self):
         self.save()
 
