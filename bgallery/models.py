@@ -33,3 +33,8 @@ class Photo(models.Model):
     def save_photo(self):
         self.save()
 
+    @classmethod
+    def search(cls,search_term):
+        image=cls.objects.filter(title__icontains=search_term)
+        return image
+
