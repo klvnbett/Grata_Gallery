@@ -1,5 +1,9 @@
-from django.http  import HttpResponse
+from django.shortcuts import render
+
+from .models import *
+
 
 # Create your views here.
-def welcome(request):
-    return HttpResponse('Welcome to the MY GALLERY')
+
+def images(request):
+    return render(request,'major/images.html')
