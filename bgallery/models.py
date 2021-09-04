@@ -15,6 +15,10 @@ class User(models.Model):
     
     def __str__(self):
         return self.firstname
+
+class Location(models.Model):
+    location=models.CharField(max_length=30)
+    user = models.ForeignKey('User',on_delete=models.CASCADE,)
         
 class Photo(models.Model):
     photo=models.ImageField(upload_to='photos/',default="Photo")
