@@ -2,10 +2,16 @@
 <div class="container">
     <div class="row">
         {%if images%}
-        <h3>Images Found {{images|length}} for the term searched{{message}}</h3>
+        <h3>Found {{images|length}} of searched term {{message}}</h3>
         {%else%}
-        <h3> No Images found from the searched term {{message}}</h3>
+        <h3>Found 0 images for searched term {{message}}</h3>
         {%endif%}
+    </div>
+    <div class="row">
+        {%if images%} {%for image in images%}
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h2>{{image.category}}</h2>
+        </div>
     </div>
 
 </div>

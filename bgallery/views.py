@@ -28,3 +28,11 @@ def search(request):
         message = 'Ooppss, You did not search for anything.'
         return render(request, 'major/search.html', {"message":message})
 
+def image(request,image_id):
+    try:
+        image=Photo.objects.get(id=image_id)
+        photo_description=Photo.objects.get(id=image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'major/image.html',{'image':image,"photo_decription":photo_description})
+    
