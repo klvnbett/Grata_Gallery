@@ -15,6 +15,16 @@ class User(models.Model):
     
     def __str__(self):
         return self.firstname
+    
+    def save_user(self):
+        self.save()
+    
+    def delete_user(self):
+        self.delete()
+    
+    def update_user(self):
+        self.update(firstname)
+        
 
 class Location(models.Model):
     location=models.CharField(max_length=30)
