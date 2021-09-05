@@ -8,7 +8,12 @@ class Category(models.Model):
     user = models.ForeignKey('User',on_delete=models.CASCADE,)
 
     def __str__(self):
-        return self.category    
+        return self.category  
+
+    @classmethod
+    def search(cls,search_term):
+        images=cls.objects.filter(category__icontains=search_term)
+        return images  
 
 class User(models.Model):
     firstname=models.CharField(max_length=30)

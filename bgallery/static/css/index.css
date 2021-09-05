@@ -1,3 +1,15 @@
 h1 {
     color: rgb(201, 24, 92);
 }
+
+.card{
+    padding-bottom:12px;
+}
+
+.card-home{
+    margin: 1rem;
+}
+
+.gallery{
+    color: whitesmoke;
+}

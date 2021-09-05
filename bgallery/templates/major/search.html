@@ -9,8 +9,18 @@
     </div>
     <div class="row">
         {%if images%} {%for image in images%}
-        <div class="col-sm-4 col-md-4 col-lg-4">
+        <div class="col-sm-6 col-md-3">
             <h2>{{image.category}}</h2>
+            <img src="{{image.photo}}" alt="Image">
+            <p>{{photo.photo.photo_description}}</p>
+            <p>{{image.photo.photo_name}}</p>
+            <p>Posted by {{image.user.firstname}} {{image.user.lastname}}</p>
+            <p>Email address: {{image.user.email}}</p>
+        </div>
+        {%endfor%}
+        {%else%}
+        <h2 class="text-center bg-warning">Nothing Found on the searched items</h2>
+        {%endif%}
         </div>
     </div>
 
