@@ -7,6 +7,9 @@ class Category(models.Model):
     category=models.CharField(max_length=30)
     user = models.ForeignKey('User',on_delete=models.CASCADE,)
 
+    def __str__(self):
+        return self.category    
+
 class User(models.Model):
     firstname=models.CharField(max_length=30)
     lastname=models.CharField(max_length=30)
@@ -24,12 +27,17 @@ class User(models.Model):
     
     def update_user(self):
         self.update(firstname)
-        
+
 
 class Location(models.Model):
     location=models.CharField(max_length=30)
     user = models.ForeignKey('User',on_delete=models.CASCADE,)
-        
+
+
+    def __str__(self):
+        return self.location
+
+
 class Photo(models.Model):
     photo=models.ImageField(upload_to='photos/',default="Photo")
     photo_name=models.CharField(max_length=40)
@@ -44,6 +52,17 @@ class Photo(models.Model):
     
     def save_photo(self):
         self.save()
+
+    def delete_photo(self):
+        self.delete()
+    
+    def update_photo(self):
+        self.update(photo)
+    
+    @classmethod
+    def get_photo_by_id(cls,id):
+        photo=cls.objects.get(id=id)
+        return photo
 
     @classmethod
     def search(cls,search_term):

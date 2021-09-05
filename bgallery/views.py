@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import Http404
 from .models import *
 import datetime as dt
 
@@ -10,7 +10,9 @@ def images(request):
     images=Photo.objects.all()
     date=dt.date.today()
     users=User.objects.all()
-    return render(request,'major/images.html',{'images':images,'date':date})
+    category=Category.objects.all()
+    location=Location.objects.all()
+    return render(request,'major/images.html',{'images':images,'date':date,'category':category,'location':location})
 
 def search(request):
     if 'image' in request.GET and request.GET['image']:
