@@ -5,7 +5,7 @@ Kipkemoi Bett
 
 ## Description
 MyGallery is a personal gallery django application that allows users display their photos for others to see.
-This displays my gallery  and with photo's category,  name, location,  title and time past since it was posted. The project usesadmin dashboard to add data.
+This  displays my gallery  and with photo's category,  name, location,  title and time past since it was posted. The project usesadmin dashboard to add data.
 
 As a user of the web application you will be able to:
 
