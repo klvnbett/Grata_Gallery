@@ -5,7 +5,9 @@ import datetime as dt
 
 class Category(models.Model):
     category=models.CharField(max_length=30)
+    # photo = models.ForeignKey('Photo',on_delete=models.CASCADE,)
     user = models.ForeignKey('User',on_delete=models.CASCADE,)
+    
 
     def __str__(self):
         return self.category  

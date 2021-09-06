@@ -2,14 +2,19 @@ h1 {
     color: rgb(201, 24, 92);
 }
 
-.card{
-    padding-bottom:12px;
+.card {
+    padding-bottom: 12px;
+    height: 45vh;
 }
 
-.card-home{
+.card-home {
     margin: 1rem;
 }
 
-.gallery{
+.gallery {
     color: whitesmoke;
+}
+
+body {
+    background-color: aquamarine;
 }

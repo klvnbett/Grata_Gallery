@@ -12,20 +12,38 @@
 </head>
 
 <body>
-    {%include "navbar.html"%}{%for image in images%}
+    {%include "navbar.html"%}
+    {%block content%}
+    {%if images%}
     <div class="container">
-        <div class="row" style="display:flex">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <h2>{{image.category}}</h2>
-                <img src="{{image.photo.url}}" class="img-responsive" alt="Photo">
-                <p>{{image.photo_name}}</p>
-                <i>Posted {{image.pub_date|timesince}}</i>
+        <div class="row">
+            {%for image in images%}
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                {{image.category}}
+                <div class="card bg-primary">
+                    <a href="{% url 'image' image.id %}"><img src="{{image.photo.url}}" class="img-responsive zoom"
+                            alt="Photo"></a>
+                    <p class="card-home">{{image.user.firstname}} posted {{image.photo_name}} at
+                        <b>{{image.location}}</b> <br/> <em>{{image.pub_date|timesince}}</em> ago.</p>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    {%else%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 bg-warning">
+                <h1 class="text-center">images not yet posted</h1>
             </div>
         </div>
     </div>
-    {%endfor%} {% block scripts %}
+    {%endif%}
+    {%endblock%}
+    {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %} {% endblock %}
+    {% bootstrap_javascript %}
+    {% endblock %}
 
 </body>
 
