@@ -1,0 +1,28 @@
+{%extends 'major/base.html'%} {%block content%}
+<div class="container">
+    <div class="row">
+        {%if images%}
+        <h3>Found {{images|length}} of searched term {{message}}</h3>
+        {%else%}
+        <h3>Found 0 images for searched term {{message}}</h3>
+        {%endif%}
+    </div>
+    <div class="row">
+        {%if images%} {%for image in images%}
+        <div class="col-sm-6 col-md-3">
+            <h2>{{image.category}}</h2>
+            <img src="{{image.photo}}" alt="Image">
+            <p>{{photo.photo.photo_description}}</p>
+            <p>{{image.photo.photo_name}}</p>
+            <p>Posted by {{image.user.firstname}} {{image.user.lastname}}</p>
+            <p>Email address: {{image.user.email}}</p>
+        </div>
+        {%endfor%}
+        {%else%}
+        <h2 class="text-center bg-warning">Nothing Found on the searched items</h2>
+        {%endif%}
+        </div>
+    </div>
+
+</div>
+{%endblock%}

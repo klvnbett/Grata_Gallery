@@ -1,0 +1,16 @@
+{%extends 'major/base.html'%} {%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <img src="{{image.photo.url}}" class="img-responsive" alt="Photo">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h2>Category {{image}}</h2>
+            <h2>{{image.photo_name}}</h2>
+            <p>{{image.photo_description}}</p>
+            <i>Posted <b>{{image.pub_date|timesince}}</b> ago by <b>{{image.user.firstname}}</b></i>
+            <p>Email: {{image.user.email}}</p>
+        </div>
+    </div>
+</div>
+{%endblock%}

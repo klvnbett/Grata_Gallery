@@ -1,0 +1,50 @@
+{%load bootstrap3%} {% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {%if title%} {{title}}{{else}}
+    <title>WELCOME TO MY GALLERY</title>
+    {%endif%} {% block styles %} {%bootstrap_css%}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"> {%endblock%}
+</head>
+
+<body>
+    {%include "navbar.html"%}
+    {%block content%}
+    {%if images%}
+    <div class="container">
+        <div class="row">
+            {%for image in images%}
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                {{image.category}}
+                <div class="card bg-primary">
+                    <a href="{% url 'image' image.id %}"><img src="{{image.photo.url}}" class="img-responsive zoom"
+                            alt="Photo"></a>
+                    <p class="card-home">{{image.user.firstname}} posted {{image.photo_name}} at
+                        <b>{{image.location}}</b> <br/> <em>{{image.pub_date|timesince}}</em> ago.</p>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    {%else%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 bg-warning">
+                <h1 class="text-center">images not yet posted</h1>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {%endblock%}
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+</body>
+
+</html>
